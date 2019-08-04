@@ -1,11 +1,11 @@
 package com.Hugo;
 
-import Easy.ReverseInt;
+import Easy.RemoveDuplicates;
 
 public class Main {
 
     public static void main(String[] args) {
-        int x = 1534236469;
-        System.out.println(ReverseInt.reverse(x));
+        int[] x = {1, 1, 2};
+        System.out.println(RemoveDuplicates.removeDuplicates(x));
     }
 }
