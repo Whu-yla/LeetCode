@@ -1,11 +1,11 @@
 package com.Hugo;
 
-import Easy.RemoveDuplicates;
+import Easy.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        int[] x = {1, 1, 2};
-        System.out.println(RemoveDuplicates.removeDuplicates(x));
+        String x = "()[]{}";
+        System.out.println(IsValid.isValid(x));
     }
 }
