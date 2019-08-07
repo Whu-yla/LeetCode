@@ -1,6 +1,7 @@
 package Easy;
 
 import javax.swing.tree.TreeNode;
+import java.util.LinkedList;
 
 /**
  * Definition for a binary tree node.
