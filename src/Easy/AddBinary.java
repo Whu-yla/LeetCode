@@ -5,8 +5,19 @@ import java.util.BitSet;
 
 public class AddBinary {
     public static String addBinary(String a, String b) {
-        return "";
+        StringBuilder ans = new StringBuilder();
+        int ca = 0;
+        for (int i = a.length() - 1, j = b.length() - 1; i >= 0 || j >= 0; i--, j--) {
+            int sum = ca;
+            sum += i >= 0 ? a.charAt(i) - '0' : 0;// a.charAt(i) - '0'两个字符相减实际上是ASCII码对应的数相减
+            sum += j >= 0 ? b.charAt(j) - '0' : 0;
+            ans.append(sum % 2);
+            ca = sum / 2;
+        }
+        ans.append(ca == 1 ? ca : "");
+        return ans.reverse().toString();
     }
+
     /**
      * 二进制转十进制
      *
@@ -46,9 +57,9 @@ public class AddBinary {
     }
 
     /**
-     * @Description: 十进制转换成二进制 ()
      * @param decimalSource
      * @return String
+     * @Description: 十进制转换成二进制 ()
      */
     public static String decimalToBinary(BigInteger decimalSource) {
 //         BigInteger bi = new BigInteger(String.valueOf(decimalSource));  //转换成BigInteger类型
@@ -56,9 +67,9 @@ public class AddBinary {
     }
 
     /**
-     * @Description: 二进制转换成十进制
      * @param binarySource
      * @return int
+     * @Description: 二进制转换成十进制
      */
     public static BigInteger binaryToDecimal(String binarySource) {
         BigInteger bi = new BigInteger(binarySource, 2);    //转换为BigInteger类型
@@ -100,4 +111,24 @@ public class AddBinary {
         }
         return bitSet;
     }
+
+    public static String addBinary2(String a, String b) {
+        int m = a.length(), n = b.length();
+        char[] r = new char[Math.max(m, n) + 1];
+        int carry = 0, k = r.length - 1;
+        for (int i = m - 1, j = n - 1; i >= 0 || j >= 0; --i, --j) {// 多参数for循环，注意j上不需要加int，同上类型
+            int x = i >= 0 ? a.charAt(i) - '0' : 0;
+            int y = j >= 0 ? b.charAt(j) - '0' : 0;
+            int val = x + y + carry;
+            r[k--] = (char) ((val % 2) + '0');
+            carry = val / 2;
+        }
+        if (carry > 0) {
+            r[0] = '1';
+            return String.valueOf(r);
+        } else {
+            return String.valueOf(r, 1, r.length - 1);
+        }
+    }
 }
+
