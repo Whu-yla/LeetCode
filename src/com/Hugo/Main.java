@@ -11,6 +11,6 @@ import static Easy.PrintHeapPath.*;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(ClimbStairs.climbStairs(5));
+        System.out.println("test push");
     }
 }
